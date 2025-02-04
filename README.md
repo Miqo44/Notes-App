@@ -1,16 +1,5 @@
-# notes_app1
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Create Note: Users can create a new note by entering a title and content.
+2. Edit Note: Notes can be edited by modifying their content.
+3. Delete Note: Users can delete a note by performing a long press on the note.
+4. Check for Changes: The app checks if there are any changes in the note and warns the user before exiting or discarding changes.
+5. State Management with BLoC: The app uses BLoC for state management, which helps maintain clean architecture and simplifies testing.
