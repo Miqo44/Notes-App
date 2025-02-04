@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app1/bloc/notes_event.dart';
+import 'package:notes_app/bloc/notes_event.dart';
 import '../bloc/notes_bloc.dart';
 import '../bloc/notes_state.dart';
 import '../models/note_model.dart';
