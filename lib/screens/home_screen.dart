@@ -40,7 +40,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   Widget _buildBody(NotesState state, bool isSearching) {
     if (isSearching && _searchController.text.isEmpty) {
-      return Container(color: Colors.black);
+      return Container(color: Color.fromRGBO(37, 37, 37, 1));
     } else if (isSearching && state is NotesLoaded && state.notes.isEmpty) {
       return _buildEmptySearchResults();
     } else if (state is NotesLoaded && state.notes.isEmpty) {
@@ -251,42 +251,39 @@ class HomeScreenState extends State<HomeScreen> {
   AppBar _buildSearchAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Color.fromRGBO(37, 37, 37, 1),
-      title: Padding(
-        padding: const EdgeInsets.only(left: 24),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Color(0xFF3B3B3B),
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: TextField(
-            controller: _searchController,
-            focusNode: _searchFocusNode,
-            style: TextStyle(color: Colors.white),
-            cursorColor: Color.fromRGBO(204, 204, 204, 1),
-            decoration: InputDecoration(
-              hintText: 'Search by the keyword...',
-              hintStyle: TextStyle(color: Colors.grey),
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(25),
-              ),
-              filled: true,
-              fillColor: Color.fromRGBO(59, 59, 59, 1),
-              contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-              suffixIcon: IconButton(
-                icon: Icon(Icons.close, color: Colors.white),
-                onPressed: () {
-                  _searchController.clear();
-                  context.read<NotesBloc>().add(ToggleSearch(false));
-                  context.read<NotesBloc>().add(LoadNotes());
-                },
-              ),
+      title: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(37, 37, 37, 1),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: TextField(
+          controller: _searchController,
+          focusNode: _searchFocusNode,
+          style: TextStyle(color: Colors.white),
+          cursorColor: Color.fromRGBO(204, 204, 204, 1),
+          decoration: InputDecoration(
+            hintText: 'Search by the keyword...',
+            hintStyle: TextStyle(color: Colors.grey),
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(25),
             ),
-            onChanged: (query) {
-              setState(() {});
-              context.read<NotesBloc>().add(SearchNotes(query));
-            },
+            filled: true,
+            fillColor: Color.fromRGBO(59, 59, 59, 1),
+            contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+            suffixIcon: IconButton(
+              icon: Icon(Icons.close, color: Colors.white),
+              onPressed: () {
+                _searchController.clear();
+                context.read<NotesBloc>().add(ToggleSearch(false));
+                context.read<NotesBloc>().add(LoadNotes());
+              },
+            ),
           ),
+          onChanged: (query) {
+            setState(() {});
+            context.read<NotesBloc>().add(SearchNotes(query));
+          },
         ),
       ),
     );
