@@ -88,7 +88,7 @@ class HomeScreenState extends State<HomeScreen> {
                       height: 110,
                       decoration: BoxDecoration(
                         color: Colors.red,
-                        borderRadius: BorderRadius.circular(10), // Закругление краев
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.center,
                       child: Icon(Icons.delete, color: Colors.white, size: 28),
@@ -97,7 +97,7 @@ class HomeScreenState extends State<HomeScreen> {
                       : Container(
                     decoration: BoxDecoration(
                       color: tileColors[index % tileColors.length],
-                      borderRadius: BorderRadius.circular(10), // Закругление краев
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
                       title: Padding(
@@ -129,7 +129,7 @@ class HomeScreenState extends State<HomeScreen> {
         ),
       );
     } else {
-      return Center(child: Text('Ошибка', style: TextStyle(color: Colors.white)));
+      return Center(child: Text('Error', style: TextStyle(color: Colors.white)));
     }
   }
 
